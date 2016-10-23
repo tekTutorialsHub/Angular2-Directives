@@ -1,0 +1,48 @@
+<p> {{title}} </p>
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        <p>Simple example of ngSwitch </p> 
+    </div>
+   <div class="panel-body">
+       Input string : <input type='text' [(ngModel)] ="Num"/>
+
+        <div [ngSwitch]="Num">
+            <div *ngSwitchCase="'1'">One</div>
+            <div *ngSwitchCase="'2'">Two</div>
+            <div *ngSwitchCase="'3'">Three</div>
+            <div *ngSwitchCase="'4'">Four</div>
+            <div *ngSwitchCase="'5'">Five</div>
+            <div *ngSwitchDefault>This is Default</div>
+            <div *ngSwitchDefault>This is another Default</div>
+        </div>
+    </div>
+</div>
+
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        <p>Simple example of ngSwitch </p> 
+    </div>
+
+   <div class="panel-body">
+        <div class='row'>
+            <div class='col-md-6'>
+                <select [(ngModel)]="selectedValue">
+                    <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class='row' [ngSwitch]="selectedValue">
+            <div class='col-md-6'>
+                <div *ngSwitchCase="'One'">One is Pressed</div>
+                <div *ngSwitchCase="'Two'">Two is Selected</div>
+                <div *ngSwitchDefault>Default Option</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+ 
