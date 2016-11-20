@@ -5,16 +5,15 @@
         <p>Simple example of ngSwitch </p> 
     </div>
    <div class="panel-body">
-       Input string : <input type='text' [(ngModel)] ="Num"/>
+       Input string : <input type='text' [(ngModel)] ="num"/>
 
-        <div [ngSwitch]="Num">
+        <div [ngSwitch]="num">
             <div *ngSwitchCase="'1'">One</div>
             <div *ngSwitchCase="'2'">Two</div>
             <div *ngSwitchCase="'3'">Three</div>
             <div *ngSwitchCase="'4'">Four</div>
             <div *ngSwitchCase="'5'">Five</div>
             <div *ngSwitchDefault>This is Default</div>
-            <div *ngSwitchDefault>This is another Default</div>
         </div>
     </div>
 </div>
@@ -34,15 +33,15 @@
             </div>
         </div>
 
-        <div class='row' [ngSwitch]="selectedValue">
-            <div class='col-md-6'>
+        <div class='col-md-6'>            
+            <div class='row' [ngSwitch]="selectedValue">
                 <div *ngSwitchCase="'One'">One is Pressed</div>
                 <div *ngSwitchCase="'Two'">Two is Selected</div>
-                <div *ngSwitchDefault>Default Option</div>
+                <div *ngSwitchDefault>This is Default</div>
             </div>
         </div>
     </div>
 </div>
 
 
- 
+

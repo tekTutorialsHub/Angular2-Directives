@@ -10,17 +10,11 @@ import { FormsModule } from '@angular/forms';
 
 export class AppComponent
 {
-    title: string = 'ngSwitch Example' ;
-    num: number= 0;
 
-    items: item[] = [{name: 'One', val: 1}, {name: 'Two', val: 2}, {name: 'Three', val: 3}];
-    selectedValue: string= 'One';
+    title: string = 'ngIf Example' ;
+    showMe: boolean;
 
 }
 
-class item {
-  name: string;
-  val: number;
-}
 
 

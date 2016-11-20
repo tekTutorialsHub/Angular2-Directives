@@ -1,0 +1,27 @@
+<p> {{title}} </p>
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        <p>Simple example of ngIf </p> 
+    </div>
+   <div class="panel-body">
+       
+       <div class="row">
+            Show <input type="checkbox" [(ngModel)] ="showMe"/>
+       </div>
+       
+       <div class='row'>
+            <div *ngIf="showMe">
+                  ShowMe is checked                  
+            </div>
+            <div *ngIf="!showMe">
+                  ShowMe is unchecked                  
+            </div>
+       </div>
+
+    </div>
+</div>
+
+
+
+
