@@ -1,0 +1,54 @@
+<p> {{title}} </p>
+
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        <p>Simple example of ngClass </p> 
+    </div>
+   <div class="panel-body">
+
+        <div class="row">
+            <div [ngClass]="'red size20'">
+                Red Text with Size 20px  : as string
+            </div>
+        </div>
+
+         <!-- This also works. -->
+        <div class="row">
+            <div ngClass='red size20'>
+                Red Text with Size 20px  : as string
+            </div>
+        </div>
+     
+        <div class="row">
+            <div [ngClass]="['red','size20']">
+                Red Text with Size 20px  : as array
+            </div>
+       </div>
+
+
+        <div class="row">
+            <div [ngClass]="{'red':true,'size20':true}">
+                Red Text with Size 20px  : as object
+            </div>
+       </div>
+       
+
+        <!-- Getting Data from Component. You can modify the CSS From the component -->
+        <div class="row">
+            <div [ngClass]="cssStringVar">
+                Red Text with Size 20px  : from component
+            </div>
+        </div>
+       
+        <div class="row">
+            <div [ngClass]="cssClass">
+                Red Text with Size 20px  : from component as object
+            </div>
+       </div>
+       
+    </div>
+</div>
+
+
+
+
