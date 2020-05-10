@@ -1,158 +1,249 @@
-<p> {{title}} </p>
+<h1> {{title}} </h1>
 
 
-<div class='panel panel-primary'>
-    <div class='panel-heading'>
-        <p>Simple example of ngFor </p> 
-    </div>
-    <div class='panel-body'>
-        <div class='table-responsive'>
-            <table class='table'>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Director</th>
-                        <th>Cast</th>
-                        <th>Release Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let movie of movies;">
-                        <td>{{movie.title}}</td>
-                        <td>{{movie.director}}</td>
-                        <td>{{movie.cast}}</td>
-                        <td>{{movie.releaseDate}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+
+<!-- ngFor Example with List -->
+
+<ul>
+  <li *ngFor="let movie of movies">
+    {{ movie.title }} - {{movie.director}}
+  </li>
+</ul>
 
 
-<div class='panel panel-primary'>
-    <div class='panel-heading'>
-        <p>Simple example of ngFor with index local variable</p> 
-    </div>
-    <div class='panel-body'>
-        <div class='table-responsive'>
-            <table class='table'>
-                <thead>
-                    <tr>
-                        <th>Index</th>
-                        <th>Title</th>
-                        <th>Director</th>
-                        <th>Cast</th>
-                        <th>Release Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let movie of movies; let i=index;">
-                        <td> {{i}} </td>
-                        <td>{{movie.title}}</td>
-                        <td>{{movie.director}}</td>
-                        <td>{{movie.cast}}</td>
-                        <td>{{movie.releaseDate}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    
-    </div>
+
+<!-- ngFor Example with Table -->
+
+<div class='card'>
+  <div class="card-header">
+    <p>Simple example of ngFor </p>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table table-bordered table-sm '>
+      <thead class="thead-dark">
+        <tr>
+          <th>Title</th>
+          <th>Director</th>
+          <th>Cast</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies;">
+          <td>{{movie.title}}</td>
+          <td>{{movie.director}}</td>
+          <td>{{movie.cast}}</td>
+          <td>{{movie.releaseDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
 </div>
 
 
 
-<div class='panel panel-primary'>
-    <div class='panel-heading'>
-        <p>Odd & even row formatting using</p> 
-    </div>
-    <div class='panel-body'>
-        <div class='table-responsive'>
-            <table class='table'>
-                <thead>
-                    <tr>
-                        <th>Index</th>
-                        <th>Title</th>
-                        <th>Director</th>
-                        <th>Cast</th>
-                        <th>Release Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let movie of movies; let i=index; let o= odd; let e=even;"
-                         [ngClass]="{ odd: o, even: e }">
-                        <td> {{i}} </td>
-                        <td>{{movie.title}}</td>
-                        <td>{{movie.director}}</td>
-                        <td>{{movie.cast}}</td>
-                        <td>{{movie.releaseDate}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    
-    </div>
+
+<!-- ngFor Example with index  -->
+
+<div class='card'>
+
+  <div class='card-header'>
+    <p>ngFor Example with index</p>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table table-bordered table-sm '>
+      <thead class="thead-dark">
+        <tr>
+          <th>Index</th>
+          <th>Title</th>
+          <th>Director</th>
+          <th>Cast</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies; let i=index;">
+          <td> {{i}} </td>
+          <td>{{movie.title}}</td>
+          <td>{{movie.director}}</td>
+          <td>{{movie.cast}}</td>
+          <td>{{movie.releaseDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<!-- Odd & Even row formatting -->
+
+
+<div class='card'>
+  <div class='card-header'>
+    <p>Odd & even row formatting</p>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table table-bordered table-sm '>
+      <thead class="thead-dark">
+        <tr>
+          <th>Index</th>
+          <th>Title</th>
+          <th>Director</th>
+          <th>Cast</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies; let i=index; let o= odd; let e=even;" [ngClass]="{ odd: o, even: e }">
+          <td> {{i}} </td>
+          <td>{{movie.title}}</td>
+          <td>{{movie.director}}</td>
+          <td>{{movie.cast}}</td>
+          <td>{{movie.releaseDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 
 
-<div class='panel panel-primary'>
-    <div class='panel-heading'>
-        <p>Using Trackby</p> 
-    </div>
-    <div class='panel-body'>
-        <div class='table-responsive'>
-            <table class='table'>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Director</th>
-                        <th>Cast</th>
-                        <th>Release Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let movie of movies; trackBy:movie?.title;" >
-                        <td>{{movie.title}}</td>
-                        <td>{{movie.director}}</td>
-                        <td>{{movie.cast}}</td>
-                        <td>{{movie.releaseDate}}</td>
-                    </tr>
-                </tbody>
+<!-- First & Last Element Styling -->
+
+<div class='card'>
+  <div class='card-header'>
+    <p>First & Last Element styling</p>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table table-bordered table-sm '>
+      <thead class="thead-dark">
+        <tr>
+          <th>Index</th>
+          <th>Title</th>
+          <th>Director</th>
+          <th>Cast</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies; let i=index; let first= first; let last=last;"
+          [ngClass]="{ first: first, last: last }">
+          <td> {{i}} </td>
+          <td>{{movie.title}}</td>
+          <td>{{movie.director}}</td>
+          <td>{{movie.cast}}</td>
+          <td>{{movie.releaseDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Nested Array -->
+
+<div class='card'>
+  <div class='card-header'>
+    <p>Nested Array</p>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table table-bordered table-sm '>
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Mail</th>
+          <th>Skills</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees;">
+          <td>{{employee.name}}</td>
+          <td>{{employee.email}}</td>
+          <td>
+            <table class='table table-sm '>
+              <tbody>
+                <tr *ngFor="let skill of employee.skills;">
+                  <td>{{skill.skill}}</td>
+                  <td>{{skill.exp}}</td>
+                </tr>
+              </tbody>
             </table>
-        </div>
-    
-    </div>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 
 
-<div class='panel panel-primary'>
-    <div class='panel-heading'>
-        <p>Using Trackby Multiple Identity</p> 
-    </div>
-    <div class='panel-body'>
-        <div class='table-responsive'>
-            <table class='table'>
-                <thead>
-                    <tr>
-                        <th>Title</th>
-                        <th>Director</th>
-                        <th>Cast</th>
-                        <th>Release Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let movie of movies; trackBy:CompositeKey;" >
-                        <td>{{movie.title}}</td>
-                        <td>{{movie.director}}</td>
-                        <td>{{movie.cast}}</td>
-                        <td>{{movie.releaseDate}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    
-    </div>
+
+<!-- Trackby -->
+
+
+<div class='card'>
+  <div class='card-header'>
+    <p>Using Trackby</p>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table table-bordered table-sm '>
+      <thead class="thead-dark">
+        <tr>
+          <th>Title</th>
+          <th>Director</th>
+          <th>Cast</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies; trackBy:trackByTitle;">
+          <td>{{movie.title}}</td>
+          <td>{{movie.director}}</td>
+          <td>{{movie.cast}}</td>
+          <td>{{movie.releaseDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+<!-- Trackby Multiple Columns -->
+
+<div class='card'>
+  <div class='card-header'>
+    <p>Using Trackby Multiple Identity</p>
+  </div>
+
+  <div class='table-responsive'>
+    <table class='table table-bordered table-sm '>
+      <thead class="thead-dark">
+        <tr>
+          <th>Title</th>
+          <th>Director</th>
+          <th>Cast</th>
+          <th>Release Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies; trackBy:CompositeKey;">
+          <td>{{movie.title}}</td>
+          <td>{{movie.director}}</td>
+          <td>{{movie.cast}}</td>
+          <td>{{movie.releaseDate}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

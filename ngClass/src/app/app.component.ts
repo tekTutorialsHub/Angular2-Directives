@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 
 export class AppComponent
 {
-
     title: string = 'ngClass Example' ;
     cssStringVar: string= 'red size20';
     cssClass: CssClass = new CssClass();

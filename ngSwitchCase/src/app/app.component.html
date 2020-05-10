@@ -1,0 +1,151 @@
+<p> {{title}} </p>
+
+<div class='card'>
+  <div class='card-header'>
+    ngSwitch Example
+  </div>
+  <div class="card-body">
+    Input string : <input type='text' [(ngModel)]="num" />
+
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="'1'">One</div>
+      <div *ngSwitchCase="'2'">Two</div>
+      <div *ngSwitchCase="'3'">Three</div>
+      <div *ngSwitchCase="'4'">Four</div>
+      <div *ngSwitchCase="'5'">Five</div>
+      <div *ngSwitchDefault>This is Default</div>
+    </div>
+  </div>
+</div>
+
+
+<div class='card'>
+  <div class='card-header'>
+    Multiple ngSwitchCase with same condition
+  </div>
+
+  <div class="card-body">
+    <select [(ngModel)]="selectedValue1">
+      <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>
+    </select>
+
+    <div [ngSwitch]="selectedValue1">
+      <p *ngSwitchCase="'One'">One is Selected</p>
+      <p *ngSwitchCase="'Two'">Two is Selected</p>
+      <p *ngSwitchCase="'Two'">Two Again used in another element</p>
+      <p *ngSwitchDefault>This is Default</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<div class='card'>
+  <div class='card-header'>
+    ngSwitch using ng-template
+  </div>
+
+  <div class="card-body">
+
+    <select [(ngModel)]="selectedValue2">
+      <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>
+    </select>
+
+    <div [ngSwitch]="selectedValue2">
+      <ng-template [ngSwitchCase]="'One'">One is Selected</ng-template>
+      <ng-template [ngSwitchCase]="'Two'">Two is Selected</ng-template>
+      <ng-template ngSwitchDefault>This is Default</ng-template>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class='card'>
+  <div class='card-header'>
+    Multiple ngSwitchDefault Directives
+  </div>
+
+  <div class="card-body">
+    <select [(ngModel)]="selectedValue3">
+      <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>
+    </select>
+
+
+    <div [ngSwitch]="selectedValue3">
+      <div *ngSwitchCase="'One'">One is Selected</div>
+      <div *ngSwitchDefault>This is Default 1</div>
+      <div *ngSwitchCase="'Two'">Two is Selected</div>
+      <div *ngSwitchDefault>This is Default 2</div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<div class='card'>
+  <div class='card-header'>
+    loose equality Empty string, "" matches 0
+  </div>
+
+  <div class="card-body">
+
+    Input string : <input type='text' [(ngModel)]="num" />
+
+    <div [ngSwitch]="num">
+      <div *ngSwitchCase="0">Zero is Selected</div>
+      <div *ngSwitchCase="1">One is Selected</div>
+      <div *ngSwitchCase="2">Two is Selected</div>
+      <div *ngSwitchDefault>This is Default 2</div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+<div class='card'>
+  <div class='card-header'>
+    Sharing Templates
+  </div>
+
+  <div class="card-body">
+
+    <select [(ngModel)]="selectedValue4">
+      <option *ngFor="let item of items;" [value]="item.name">{{item.name}}</option>
+    </select>
+    
+
+    <ng-container [ngSwitch]="selectedValue4">
+
+      <ng-container *ngSwitchCase="'One'">
+        <ng-container *ngTemplateOutlet="sharedTemplate12"></ng-container>
+      </ng-container>
+      <ng-container *ngSwitchCase="'Two'">
+        <ng-container *ngTemplateOutlet="sharedTemplate12"></ng-container>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Three'">
+        <ng-container *ngTemplateOutlet="sharedTemplate34"></ng-container>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'Four'">
+        <ng-container *ngTemplateOutlet="sharedTemplate34"></ng-container>
+      </ng-container>
+
+
+
+      <ng-template #sharedTemplate12>Shared between 1,2</ng-template>
+      <ng-template #sharedTemplate34>Shared between 3,4</ng-template>
+
+      <ng-container *ngSwitchDefault>Default Template</ng-container>
+
+    </ng-container>
+
+  </div>
+</div>

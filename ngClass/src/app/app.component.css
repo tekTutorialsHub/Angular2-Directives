@@ -1,7 +1,10 @@
 .red {
-    color: red;
+  color: red;
 }
 
 .size20 {
-    font-size: 20px;
+  font-size: 20px;
 }
+
+
+.card { margin: 20px;}

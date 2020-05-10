@@ -1,0 +1,9 @@
+.even { background-color: azure; }
+.odd { background-color: floralwhite; }
+
+
+.first { background-color: azure; }
+.last { background-color: floralwhite; }
+
+
+.card { margin: 20px;}

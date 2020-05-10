@@ -1,29 +1,25 @@
 <p> {{title}} </p>
 
-<div class='panel panel-primary'>
-    <div class='panel-heading'>
-        <p>Simple example of ngIf </p> 
-    </div>
-   <div class="panel-body">
-       
-        
-        <input [(ngModel)]="color" />
-        <div [ngStyle]="{'color': color}">
-            Change my color
-        </div>
+<div class='card'>
+  <div class='card-header'>
+    <p>Simple example of ngStyle </p>
+  </div>
+  <div class="card-body">
 
-        <input [(ngModel)]="size" />
-       <div [ngStyle]="{'font-size.px': size}">
-                Change my size
-        </div>
 
-       <div [ngStyle]="styleClass">
-            Change my size & Color
-        </div>
-        
+    <input [(ngModel)]="color" />
+    <div [ngStyle]="{'color': color}">
+      Change my color
     </div>
+
+    <input [(ngModel)]="size" />
+    <div [ngStyle]="{'font-size.px': size}">
+      Change my size
+    </div>
+
+    <div [ngStyle]="styleClass">
+      Change my size & Color
+    </div>
+
+  </div>
 </div>
-
-
-
-
